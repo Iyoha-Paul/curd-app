@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/curd-app/static/css/main.93a9a77b.css",
+    "main.js": "/curd-app/static/js/main.52af3391.js",
+    "index.html": "/curd-app/index.html",
+    "main.93a9a77b.css.map": "/curd-app/static/css/main.93a9a77b.css.map",
+    "main.52af3391.js.map": "/curd-app/static/js/main.52af3391.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.93a9a77b.css",
+    "static/js/main.52af3391.js"
+  ]
+}
