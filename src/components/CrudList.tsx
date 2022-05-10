@@ -11,12 +11,14 @@ const CrudList = ({ items }: any) => {
   //   console.log(blogs);
   //   const history = useHistory();
   const [deleting, setDeleting] = useState(false);
+  const [deleted, setDeleted] = useState(false);
   const [deletingId, setDeletingId] = useState<any>();
   const handleDelete = async (id: any) => {
     setDeleting(true);
     // setDeletingId(id);
     try {
       await api.delete(`posts/${id}`);
+      setDeleted(true);
       window.location.reload();
     } catch (err: any) {
       console.log(`Error: ${err.message}`);
@@ -70,9 +72,15 @@ const CrudList = ({ items }: any) => {
             </td>
             <td className=" crudlist__header--delete">
               {deleting && deletingId === item.id ? (
-                <button disabled className="btn btn--del">
-                  deleting
-                </button>
+                deleted ? (
+                  <button disabled className="btn btn--deleted">
+                    Deleted!
+                  </button>
+                ) : (
+                  <button disabled className="btn btn--del">
+                    deleting
+                  </button>
+                )
               ) : (
                 <button
                   className="btn btn--del"

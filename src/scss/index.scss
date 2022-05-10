@@ -98,6 +98,10 @@ body {
         background-color: red;
       }
     }
+    &--deleted {
+      transform: scale(1.1);
+      background-color: green;
+    }
   }
   tbody {
     height: 90rem;
