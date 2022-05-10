@@ -3,14 +3,18 @@ import React from "react";
 // import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { NavLink } from "react-router-dom";
 import api from "./api/posts";
+import { useState } from "react";
 
 const CrudList = ({ items }: any) => {
   //   const blogs = props.blogs;
   //   const title = props.title;
   //   console.log(blogs);
   //   const history = useHistory();
-
+  const [deleting, setDeleting] = useState(false);
+  const [deletingId, setDeletingId] = useState<any>();
   const handleDelete = async (id: any) => {
+    setDeleting(true);
+    // setDeletingId(id);
     try {
       await api.delete(`posts/${id}`);
       window.location.reload();
@@ -65,12 +69,21 @@ const CrudList = ({ items }: any) => {
               </NavLink>
             </td>
             <td className=" crudlist__header--delete">
-              <button
-                className="btn btn--del"
-                onClick={() => handleDelete(item.id)}
-              >
-                delete
-              </button>
+              {deleting && deletingId === item.id ? (
+                <button disabled className="btn btn--del">
+                  deleting
+                </button>
+              ) : (
+                <button
+                  className="btn btn--del"
+                  onClick={() => {
+                    setDeletingId(item.id);
+                    handleDelete(item.id);
+                  }}
+                >
+                  delete
+                </button>
+              )}
             </td>
           </tr>
         ))}

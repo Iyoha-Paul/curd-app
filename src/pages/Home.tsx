@@ -11,7 +11,7 @@ const Home = () => {
   //   setBlogs(newblogs);
   // }
 
-  const { data: items, isLoading, error } = useFetch();
+  const { data: items, isLoading, error } = useFetch(`/`);
   console.log(items);
   return (
     <div className="home container">

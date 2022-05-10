@@ -191,6 +191,14 @@ body {
     display: flex;
     gap: 5rem;
   }
+  .deleted {
+    h2 {
+      margin-bottom: 10rem;
+    }
+  }
+  .loading {
+    font-size: 5rem;
+  }
 }
 // .crudlist {
 //   border-collapse: collapse;

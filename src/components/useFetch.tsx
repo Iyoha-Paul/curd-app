@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import api from "./api/posts";
-const useFetch = () => {
+import { Item } from "./model";
+const useFetch = (id: string) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<Item>();
   const [error, setError] = useState<any>(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await api.get("/posts");
+        const response = await api.get(`/posts${id ? `/${id}` : null}`);
         setData(response.data);
         setIsLoading(false);
         setError(null);
