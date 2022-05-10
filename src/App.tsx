@@ -9,7 +9,7 @@ import NotFound from "./pages/NotFound";
 //  basename={window.location.pathname || ""}
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={window.location.pathname || ""}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/newItem" element={<NewItem />} />
