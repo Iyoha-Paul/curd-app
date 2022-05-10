@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Qwigley&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&display=swap");
+
+$primary-color: #ed6fab;
+$secondary-color: #495057;
+$text-color: #e9ecef;
+$mobile: 1440px;
+$mobile-view: 500px;
+@mixin mobile {
+  @media (max-width: $mobile-view) {
+    @content;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand";
+  // color: blue;
+}
+html {
+  font-size: 62.5%;
+  @include mobile {
+    font-size: 40%;
+  }
+}
+@mixin transition-ease {
+  transition: all 0.5s ease-in-out;
+}
+@mixin Flebo-parallel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@function set-test-color($color) {
+  @if (lightness($color) > 40%) {
+    @return #000;
+  } @else {
+    @return white;
+  }
+}
